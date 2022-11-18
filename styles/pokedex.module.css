@@ -1,0 +1,38 @@
+  @font-face {
+    font-family: 'pocket_monkregular';
+    src: url('../public/Pokemon-font/pocketmonk-15ze-webfont.woff2') format('woff2'),
+         url("../public/Pokemon-font/pocketmonk-15ze-webfont.woff") format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  .pokedexDiv{
+    background-color:#ffff80;
+    font-family: pocket_monkregular;
+    font-size: 27px;
+    display: block;
+    align-items: center;
+    margin: -5px;
+    width: auto;
+  }
+  
+
+
+  div.detailsPage{
+    margin: -7px;
+    min-height: 99vh
+  }
+  .detailsPage{
+    font-family: pocket_monkregular;
+    background: #ffff80;
+    padding-top: 10px;
+    display: block;
+    text-align: center;
+    font-size: 40px;
+
+
+  }
+  
+  .Header{
+    padding: 20px;
+  }
