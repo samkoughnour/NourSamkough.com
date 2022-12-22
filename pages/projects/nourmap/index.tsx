@@ -1,7 +1,9 @@
 import axios, { AxiosResponse } from 'axios'
 import React, { useState } from 'react'
-import Placefinder from '../components/nourmaps/Placefinder'
-import determineRoute from '../components/nourmaps/determineRoute'
+import Placefinder from '../../../components/nourmaps/Placefinder'
+import determineRoute from '../../../components/nourmaps/determineRoute'
+
+
 
 const Nourmap = () => {
   const [locationList, setLocationList] = useState([{}])
@@ -9,7 +11,7 @@ const Nourmap = () => {
   const [distance, setDistance] = useState(0)
 
   const createApiUrl = (locations: object[]): string => {
-    let url = '/api/nourmap/findroute/'
+    let url = '/api/nourmap/findroute/1'
     for (var i = 0; i < locations.length; i++) {
       url = url + locations[i].place_id + '/'
     }
@@ -45,13 +47,18 @@ const Nourmap = () => {
     }
   }
 
+  const LocationHeader = (): any => {
+    return isFreshList
+      ? null
+      : locationList.map((location, index) => {
+          return <h1 key={index}>{location.description}</h1>
+        })
+  }
+
   return (
     <div>
       <Placefinder addLocation={addLocation} />
-      {!isFreshList &&
-        locationList.map((location, index) => {
-          return <h1 key={index}>{location.description}</h1>
-        })}
+      <LocationHeader />
       <button
         onClick={() => {
           findRoute(locationList)

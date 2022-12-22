@@ -14,12 +14,13 @@ const Placefinder = (props: AppProps) => {
 
   const buttonHandler = async (event: MouseEvent) => {
     event.preventDefault()
-    await axios
-      .get('/api/nourmap/autocomplete/' + searchbarValue)
-      .then((response: AxiosResponse) => {
-        setSearchResults(response.data.predictions)
-        setSearchResultsAvailable(true)
-      })
+
+    const response = await axios.get(
+      `/api/nourmap/autocomplete/${searchbarValue}`,
+    )
+
+    setSearchResults(response.data.predictions)
+    setSearchResultsAvailable(true)
   }
 
   return (
