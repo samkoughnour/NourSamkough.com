@@ -7,7 +7,7 @@ import StyledWrapper from './styleComponents/2048/StyledWrapper'
 function Gameboard({board, move}) {
   return (
     <StyledWrapper
-    role="button"
+      role="button"
     tabIndex="0"
     onKeyDown={e => move(e)}>
       <table style={{margin: "auto"}}>

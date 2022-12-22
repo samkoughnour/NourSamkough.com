@@ -1,0 +1,13 @@
+{
+  "semi": false,
+  "trailingComma": "all",
+  "singleQuote": true,
+  "printWidth": 80,
+  "importOrder": [
+    "^((api|components|constants|hooks|lottie-files|pages|public|redux|style|types|utilities)(/.*)?$)",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrderCaseInsensitive": true
+}
