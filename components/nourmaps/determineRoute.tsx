@@ -8,6 +8,7 @@ const determineRoute  = (distancematrix:number[][]) => {
     let minpath =[]
     for(var i = 0; i<paths.length ; i++){
         let length = 0
+        
         let path = paths[i]
         for(var j = 0; j<path.length - 1; j++){
             length = length + distancematrix[path[j]][path[j+1]]
@@ -17,7 +18,7 @@ const determineRoute  = (distancematrix:number[][]) => {
             minpath = path
         }
     }
-    return min
+    return {length: min, minpath: minpath}
 }
 
 const permutations = (arr: number[]) => {

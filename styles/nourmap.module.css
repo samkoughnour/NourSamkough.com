@@ -1,0 +1,61 @@
+@import url("@fontsource/montserrat");
+
+.pageStyles{
+    background-color: #EEEEEE;
+    font-family: 'Montserrat';
+    height: 100vh;
+}
+
+.container{
+    display: flex;
+}
+
+.leftColumn{
+    width: 50%;
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+}
+
+.rightColumn{
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+}
+
+.searchbuttonStyling{
+    font-size: 13px;
+    font-family: 'Montserrat';
+    background-color: #F4B400;
+    color: white;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+    text-decoration: none;
+}
+
+.routebuttonStyling{
+    font-size: 13px;
+    font-family: 'Montserrat';
+    background-color: #0F9D58;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    text-decoration: none;
+}
+
+.searchresultbuttonStyling{
+    font-size: 12px;
+    font-family: 'Montserrat';
+    background-color: #DB4437;
+    color: white;
+    padding: 7px;
+    margin: 2px;
+    border-radius: 10px;
+    border: none;
+    text-decoration: none;
+}
+
+

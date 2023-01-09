@@ -1,5 +1,6 @@
 import React, { useState, MouseEvent } from 'react'
 import axios, { AxiosResponse } from 'axios'
+import styles from '../../styles/nourmap.module.css'
 
 interface AppProps {
   addLocation: React.MouseEventHandler
@@ -7,9 +8,7 @@ interface AppProps {
 
 const Placefinder = (props: AppProps) => {
   const [searchbarValue, setSearchbarValue] = useState('')
-  const [searchResults, setSearchResults] = useState([
-    { description: 'Not a location' },
-  ])
+  const [searchResults, setSearchResults] = useState([])
   const [searchResultsAvailable, setSearchResultsAvailable] = useState(false)
 
   const buttonHandler = async (event: MouseEvent) => {
@@ -18,40 +17,54 @@ const Placefinder = (props: AppProps) => {
     const response = await axios.get(
       `/api/nourmap/autocomplete/${searchbarValue}`,
     )
-
+    setSearchbarValue("")
     setSearchResults(response.data.predictions)
     setSearchResultsAvailable(true)
   }
 
+  const NourButton = ({ key, onClick, description }: any) => {
+    return (
+      <button key={key} className={styles.searchresultbuttonStyling} onClick={onClick}>
+        {description}
+      </button>
+    )
+  }
+
+  const LocationButtons = (): any => {
+    if (searchResults.length === 0) {
+      return null
+    }
+
+    return searchResults.map((result, index) => {
+      return (
+        <NourButton
+          key={index}
+          onClick={() => {
+            props.addLocation(searchResults[index])
+            setSearchbarValue('')
+            setSearchResults([])
+          }}
+          description={result.description}
+        />
+      )
+    })
+  }
+
+  
+
   return (
-    <div>
-      <h1>NourMaps</h1>
+    <>
       <form>
         <input
           onChange={(e) => {
             setSearchbarValue(e.target.value)
           }}
-        ></input>
-        <button onClick={buttonHandler}>Search Locations</button>
+          value={searchbarValue}
+        />
+        <button className= {styles.searchbuttonStyling} onClick={buttonHandler}>Search Locations</button>
       </form>
-      <div>
-        {searchResults[0].description !== 'Not a location' &&
-          searchResults.map((result, index) => {
-            return (
-              <button
-                key={index}
-                onClick={() => {
-                  props.addLocation(searchResults[index])
-                  setSearchbarValue('')
-                  setSearchResults([{ description: 'Not a location' }])
-                }}
-              >
-                {result.description}
-              </button>
-            )
-          })}
-      </div>
-    </div>
+      <LocationButtons />
+    </>
   )
 }
 

@@ -18,6 +18,7 @@ export default function Projects() {
       <Title>Nour Samkough</Title>
       <ProjectLink projectTitle="Nour's Pokedex" linkHref="projects/pokedex" />
       <ProjectLink projectTitle="Nourfourtyeight" linkHref="projects/2048" />
+      <ProjectLink projectTitle='Nourmaps' linkHref='projects/nourmap'></ProjectLink>
     </div>
   )
 }
