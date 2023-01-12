@@ -8,14 +8,17 @@ import styles from "../../../styles/nourmap.module.css"
 
 
 const Nourmap = () => {
-  const [locationList, setLocationList] = useState([{}])
+  const [locationList, setLocationList] = useState<any>([{}])
   const [isFreshList, setIsFreshList] = useState(true)
   const [displayPathBool, setDisplayPathBool] = useState(false)
   const [bestPath, setBestPath] = useState({length: 0, minpath: [0]})
+  type Location = {
+    place_id: string
+    description: string
+  }
 
 
-
-  const createApiUrl = (locations: object[]): string => {
+  const createApiUrl = (locations: Location[]): string => {
     let url = '/api/nourmap/findroute/'
     for (var i = 0; i < locations.length; i++) {
       url = url + locations[i].place_id + '/'
@@ -23,13 +26,13 @@ const Nourmap = () => {
     return url
   }
 
-  const findRoute = async (locations: object[]) => {
+  const findRoute = async (locations: any) => {
     let url = createApiUrl(locations)
     let distancematrix:number[][] = []
     await axios.get(url).then((response: AxiosResponse) => {
       let rows = response.data.rows
       for (var i = 0; i < rows.length; i++) {
-        let temp = []
+        let temp: any = []
         for (var j = 0; j < rows[i].elements.length; j++) {
           temp.push(rows[i].elements[j].duration.value)
         }
@@ -53,14 +56,10 @@ const Nourmap = () => {
     }
   }
 
-  const StyledLocationTitle = styled.h2`
-    font-family: sans-serif;
-  `
-
   const LocationHeader = (): any => {
     return isFreshList
       ? null
-      : locationList.map((location, index) => {
+      : locationList.map((location: Location, index: number) => {
           return <h2 key={index}>{location.description}</h2>
         })
   }

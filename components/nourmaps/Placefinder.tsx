@@ -10,6 +10,10 @@ const Placefinder = (props: AppProps) => {
   const [searchbarValue, setSearchbarValue] = useState('')
   const [searchResults, setSearchResults] = useState([])
   const [searchResultsAvailable, setSearchResultsAvailable] = useState(false)
+  type Location = {
+    place_id: string
+    description: string
+  }
 
   const buttonHandler = async (event: MouseEvent) => {
     event.preventDefault()
@@ -35,7 +39,7 @@ const Placefinder = (props: AppProps) => {
       return null
     }
 
-    return searchResults.map((result, index) => {
+    return searchResults.map((result: Location, index) => {
       return (
         <NourButton
           key={index}

@@ -17,8 +17,11 @@ export default function Home() {
       <Head>
         <title>Nour Samkough</title>
       </Head>
-      <Title>Nour Samkough</Title>
-      <Link href='/projects'>Projects</Link>
+      <h1 className={styles.title}>Nour Samkough</h1>
+      <Link href='/about' className={styles.homelink}>About me</Link>
+      <Link href='/projects' className={styles.homelink}>Projects</Link>
+      <Link href='/projects' className={styles.homelink}>Something</Link>
+      <Link href='/projects' className={styles.homelink}>Something</Link>
     </div>
   )
 }

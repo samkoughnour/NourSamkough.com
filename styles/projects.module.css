@@ -1,0 +1,16 @@
+.projectDiv{
+    display: inline-block;
+    width: 30%;
+    height: 100px;
+    border-radius: 25px;
+    background: #DF57BC;
+    text-align: center;
+    line-height: 200px;
+    margin: 10px;
+    color: white;
+    line-height: 100px;
+}
+.link{
+    color: white;
+    line-height: 100px;
+}
