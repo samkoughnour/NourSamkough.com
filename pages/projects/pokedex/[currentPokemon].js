@@ -1,6 +1,6 @@
 import axios from "axios"
 import Image from "next/image"
-import styles from '../../styles/pokedex.module.css'
+import styles from '../../../styles/pokedex.module.css'
 
 export default function currentPokemon({ pokemon }) {
     const imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+ pokemon.id +".png"

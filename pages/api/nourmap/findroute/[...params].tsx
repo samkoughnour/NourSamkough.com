@@ -5,9 +5,9 @@ import createRouteUrl from "../../../../components/nourmaps/createRouteUrl";
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
     
 
-    const params = req.query.params
+    const params:any = req.query.params
 
-    const url:string = createRouteUrl(params)
+    const url: any = createRouteUrl(params)
 
     return new Promise((resolve, reject) => {
         axios.get(url)
