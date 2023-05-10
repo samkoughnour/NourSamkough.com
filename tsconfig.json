@@ -16,6 +16,6 @@
     "incremental": true,
     "noImplicitAny": false
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/index.jsx", "pages/pokedex/index.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/index.jsx", "pages/pokedex/index.jsx", "components/chessnour/Chessboard.tsx"],
   "exclude": ["node_modules"]
 }
