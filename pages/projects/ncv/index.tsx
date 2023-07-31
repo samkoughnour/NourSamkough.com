@@ -5,8 +5,8 @@ import NcvBox from "../../../components/ncv/ncvCandidateList"
 import styled from "styled-components"
 
 const Ncv = () => {
-    const [candidateList, setCandidateList] = useState<string[]>(["Wolf of Wall Street", "American Psycho", "Ghost World"])
-    const [voterList, setVoterList] = useState<string[]>(["Marej", "Adam", "Zak"])
+    const [candidateList, setCandidateList] = useState<string[]>([])
+    const [voterList, setVoterList] = useState<string[]>([])
     const [privacyOption, setPrivacyOption]  = useState<boolean>(false)
     const [votingStage, setVotingStage] = useState<number>(-1)
     const [ballotLists, setBallotLists] = useState<string[][]>([])
